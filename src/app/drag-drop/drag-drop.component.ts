@@ -49,6 +49,7 @@ export class DragDropComponent implements OnInit {
     this.form.patchValue({
       avatar: this.fileObj
     })
+
     this.form.get('avatar').updateValueAndValidity()
 
     // Upload to server
@@ -67,12 +68,12 @@ export class DragDropComponent implements OnInit {
             break;
           case HttpEventType.Response:
             console.log('File uploaded successfully!', event.body);
-            // setTimeout(() => {
-            //   this.progress = 0;
-            //   this.fileArr = [];
-            //   this.fileObj = [];
-            //   this.msg = "File uploaded successfully!"
-            // }, 2500);
+            setTimeout(() => {
+              this.progress = 0;
+              this.fileArr = [];
+              this.fileObj = [];
+              this.msg = "File uploaded successfully!"
+            }, 3000);
         }
       })
   }

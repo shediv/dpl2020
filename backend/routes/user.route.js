@@ -62,4 +62,13 @@ router.post('/create-user', upload.array('avatar', 6), (req, res, next) => {
   })
 })
 
+router.get("/", (req, res, next) => {
+  User.find().then(data => {
+    res.status(200).json({
+      message: "User list retrieved successfully!",
+      users: data
+    });
+  });
+});
+
 module.exports = router;
