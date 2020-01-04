@@ -28,6 +28,15 @@ export class DragdropService {
     )
   }
 
+  addPlayer(playerData: Object) {
+    return this.http.post('http://localhost:4000/api/add-player', playerData, {
+      reportProgress: true,
+      observe: 'events'
+    }).pipe(
+      catchError(this.errorMgmt)
+    )
+  }
+
   errorMgmt(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

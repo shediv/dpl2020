@@ -68,6 +68,7 @@ export class DragDropComponent implements OnInit {
             break;
           case HttpEventType.Response:
             console.log('File uploaded successfully!', event.body);
+            localStorage.setItem('userImage', event.body.userCreated.avatar[0]);
             setTimeout(() => {
               this.progress = 0;
               this.fileArr = [];

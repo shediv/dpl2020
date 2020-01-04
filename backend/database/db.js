@@ -1,4 +1,4 @@
 module.exports = {
-  db: 'mongodb://localhost:27017/meanfileupload'
+  db: 'mongodb://dplAdmin:$dplAdm1n$@ds159216.mlab.com:59216/dpl2020'
 }
 

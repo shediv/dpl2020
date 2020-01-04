@@ -31,14 +31,15 @@ var upload = multer({
   }
 });
 
-// User model
+// Player model
 let User = require('../models/User');
+let Player = require('../models/Player');
 
 router.post('/create-user', upload.array('avatar', 6), (req, res, next) => {
   const reqFiles = []
   const url = req.protocol + '://' + req.get('host')
   for (var i = 0; i < req.files.length; i++) {
-    reqFiles.push(url + '/public/' + req.files[i].filename)
+    reqFiles.push(url + '/public/' + new Date().getTime() + req.files[i].filename)
   }
 
   const user = new User({
@@ -62,8 +63,63 @@ router.post('/create-user', upload.array('avatar', 6), (req, res, next) => {
   })
 })
 
-router.get("/", (req, res, next) => {
-  User.find().then(data => {
+router.post('/add-player', (req, res) => {
+  const player = new Player({
+    _id: new mongoose.Types.ObjectId(),
+    firstName: req.body.firstName,
+    middleName: req.body.middleName,
+    lastName: req.body.lastName,
+    day: req.body.day,
+    month: req.body.month,
+    year: req.body.year,
+    mobile: req.body.mobile,
+    wado: req.body.wado,
+    panchayat: req.body.panchayat,
+    taluka: req.body.taluka,
+    lastDPL: req.body.lastDPL,
+    gdsClub: req.body.gdsClub,
+    batting: req.body.batting,
+    bowling: req.body.bowling,
+    wk: req.body.wk,
+    registrationDate: req.body.registrationDate,
+    photo: req.body.photo,
+    paymentPerson: req.body.paymentPerson
+  });
+  player.save().then(result => {
+    res.status(201).json({
+      message: "Done Adding User!",
+      userCreated: {
+        _id: result._id,
+        firstName: result.firstName,
+        middleName: result.middleName,
+        lastName: result.lastName,
+        day: result.day,
+        month: result.month,
+        year: result.year,
+        mobile: result.mobile,
+        wado: result.wado,
+        panchayat: result.panchayat,
+        taluka: result.taluka,
+        lastDPL: result.lastDPL,
+        gdsClub: result.gdsClub,
+        batting: result.batting,
+        bowling: result.bowling,
+        wk: result.wk,
+        registrationDate: result.registrationDate,
+        photo: result.photo,
+        paymentPerson: result.paymentPerson
+      }
+    })
+  }).catch(err => {
+    console.log(err),
+      res.status(500).json({
+        error: err
+      });
+  })
+})
+
+router.get("/", (req, res) => {
+  Player.find().then(data => {
     res.status(200).json({
       message: "User list retrieved successfully!",
       users: data

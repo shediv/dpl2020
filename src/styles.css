@@ -5,7 +5,7 @@
 body {
     margin: 0;
     padding: 25px 0 0 0;
-    background: #291464;
+    background: #59964a;
 }
 
 .container {
@@ -24,7 +24,7 @@ body {
     background-position: center;
     background-color: #ffffff;
     height: 200px;
-    width: 100%;
+    width: 30%;
     cursor: pointer;
     /* border: 2px dashed #0f68ff; */
     border-radius: 6px;

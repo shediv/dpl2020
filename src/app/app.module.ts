@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { DragDropComponent } from './drag-drop/drag-drop.component';
+import { PlayerFormComponent } from './player-form/player-form.component';
 
 import { DragDropFileUploadDirective } from './drag-drop-file-upload.directive';
 
@@ -14,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     DragDropComponent,
+    PlayerFormComponent,
     DragDropFileUploadDirective
   ],
   imports: [

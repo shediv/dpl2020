@@ -1,0 +1,162 @@
+<div *ngIf="complexForm.controls['photo']" class="container">
+    <div class="jumbotron" *ngIf="!formSubmitted">
+        <h2>DPL 2020 Player Registration Form</h2>
+        <form [formGroup]="complexForm" (ngSubmit)="submitForm(complexForm.value)">
+            <input class="form-control" type="hidden" placeholder="" [formControl]="complexForm.controls['photo']">
+
+            <!-- Name -->
+            <div class="row align-items-start">
+                <div class="col">
+                    <div class="form-group">
+                    <label>First Name</label>
+                    <input class="form-control" type="text" placeholder="" [formControl]="complexForm.controls['firstName']" required>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                    <label>Middle Name</label>
+                    <input class="form-control" type="text" placeholder="" [formControl]="complexForm.controls['middleName']" required>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input class="form-control" type="text" placeholder="" [formControl]="complexForm.controls['lastName']" required>
+                    </div>
+                </div>
+            </div>
+            <!-- End Name -->
+
+            <!-- Date of Birth -->
+            <label>Date of Birth</label>
+            <div class="row align-items-start">            
+                <div class="col">
+                    <div class="form-group">
+                    <input class="form-control" type="text" placeholder="Day" [formControl]="complexForm.controls['day']" required>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                    <input class="form-control" type="text" placeholder="Month" [formControl]="complexForm.controls['month']" required>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="Year" [formControl]="complexForm.controls['year']" required>
+                    </div>
+                </div>
+            </div>
+            <!-- End Date of Birth -->
+
+            <!-- Contact Number -->
+            <label>Mobile Number</label>
+            <div class="row align-items-start">            
+                <div class="col">
+                    <div class="form-group">
+                    <input class="form-control" type="text" placeholder="" [formControl]="complexForm.controls['mobile']" required>
+                    </div>
+                </div>
+            </div>
+            <!-- End Contact Number -->
+
+            <!-- Address start --> 
+            <label>Address : </label>
+            <div class="col align-items-start">
+                <div class="col">
+                    <div class="form-group">
+                    <label>Wado</label>
+                    <input class="form-control" type="text" placeholder="" [formControl]="complexForm.controls['wado']" required>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                    <label>Panchayat</label>
+                    <input class="form-control" type="text" placeholder="" [formControl]="complexForm.controls['panchayat']" required>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                    <label>Taluka</label>
+                    <input class="form-control" type="text" placeholder="" [formControl]="complexForm.controls['taluka']" required>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                    <label>DPL 2019</label>
+                    <input class="form-control" type="text" placeholder="" [formControl]="complexForm.controls['lastDPL']" required>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                    <label>GDS Club</label>
+                    <input class="form-control" type="text" placeholder="" [formControl]="complexForm.controls['gdsClub']" required>
+                    </div>
+                </div>
+            </div>
+            <!-- Address End --> 
+
+            <!-- Player Skills -->                            
+            <label>Player Skills : </label>
+            <div class="row align-items-start">
+                <div class="col">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" value="batting" name="batting" [formControl]="complexForm.controls['batting']"> batting
+                    </label>
+                </div>
+
+                <div class="col">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" value="bowling" name="bowling" [formControl]="complexForm.controls['bowling']"> Bowling
+                    </label>
+                </div>
+
+                <div class="col">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" value="wk" name="wk" [formControl]="complexForm.controls['wk']"> WK
+                    </label>
+                </div>
+            </div>
+            <!-- End Player Skills -->
+
+            <!-- Payment person end -->
+            <div class="col align-items-start">
+                <div class="form-group">
+                    <label for="sel1">I will pay Rs. 100 to:</label>
+                    <select class="form-control" id="sel1" [formControl]="complexForm.controls['paymentPerson']">
+                      <option>Bomu Kale</option>
+                      <option>Vithoba Kharat</option>
+                      <option>Rajen Shelke</option>
+                      <option>Sidhesh Lambor</option>
+                      <option>Darshan</option>
+                      <option>Mahesh Hedge</option>
+                      <option>Uday Varak</option>
+                      <option>Videsh Hedge</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Payment person end -->
+
+            <div class="col align-items-start">
+                <div class="col">
+                    <label>Note: DPL commitee has right to reject this form</label>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary" [disabled]="!complexForm.valid">Submit</button>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+
+    <div class="jumbotron" *ngIf="formSubmitted">
+        <h2>Your Form Submitted successfully!!!</h2>
+    </div>
+</div>
