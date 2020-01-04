@@ -83,7 +83,8 @@ router.post('/add-player', (req, res) => {
     wk: req.body.wk,
     registrationDate: req.body.registrationDate,
     photo: req.body.photo,
-    paymentPerson: req.body.paymentPerson
+    paymentPerson: req.body.paymentPerson,
+    confirm: false
   });
   player.save().then(result => {
     res.status(201).json({

@@ -21,7 +21,8 @@ let playerSchema = new Schema({
   wk: Boolean,
   registrationDate: String,
   photo: String,
-  paymentPerson: String
+  paymentPerson: String,
+  confirm: Boolean
 }, {
   collection: 'players'
 })

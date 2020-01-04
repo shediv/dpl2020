@@ -20,7 +20,7 @@ export class DragdropService {
       formData.append('avatar', arr[0][i]);
     })
 
-    return this.http.post('http://localhost:4000/api/create-user', formData, {
+    return this.http.post('http://35.222.206.208/api/create-user', formData, {
       reportProgress: true,
       observe: 'events'
     }).pipe(
@@ -29,7 +29,7 @@ export class DragdropService {
   }
 
   addPlayer(playerData: Object) {
-    return this.http.post('http://localhost:4000/api/add-player', playerData, {
+    return this.http.post('http://35.222.206.208/api/add-player', playerData, {
       reportProgress: true,
       observe: 'events'
     }).pipe(
